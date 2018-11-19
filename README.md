@@ -7,4 +7,4 @@ Installation instructions:
   
   library("devtools")
   
-  devtools::install_github(domdfcoding/domtools)
+  devtools::install_github("domdfcoding/domtools")
