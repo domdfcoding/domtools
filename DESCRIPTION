@@ -1,0 +1,13 @@
+Package: domtools
+Title: Various useful R functions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Dominic",
+           family = "Davis-Foster",
+           role = c("aut", "cre"),
+           email = "dominic@davis-foster.co.uk")
+Description: Various useful R functions, including statistical tests for data frames.
+License: The 3-Clause BSD License
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0.9000
