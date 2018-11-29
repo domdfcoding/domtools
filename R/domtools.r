@@ -5,14 +5,12 @@
 #'
 #' This function clears the terminal on Unix systems.
 #' Does not work on Windows.
-#' Run makeActiveBinding("clear", cls_fun, baseenv()) 
+#' Run makeActiveBinding("clear", clear, baseenv()) 
 #'	to be able to type "clear"
 #' @keywords clear
 #' @export
 #' @examples
-#' cls_fun()
 #' clear()
-cls_fun <- function() cat(c("\033[2J","\033[0;0H"));
 clear <- function() cat(c("\033[2J","\033[0;0H"));
 
 
@@ -20,15 +18,12 @@ clear <- function() cat(c("\033[2J","\033[0;0H"));
 #'
 #' This function starts a new line on the terminal.
 #' Can also be used to print a blank line.
-#' Run makeActiveBinding("newline", nl_fun, baseenv())
+#' Run makeActiveBinding("newline", newline, baseenv())
 #'	to be able to type "newline
 #' @keywords newline
 #' @export
 #' @examples
-#' nl_fun()
 #' newline()
-# newline function
-nl_fun <- function() cat("\n");
 newline <- function() cat("\n");
 
 #' Input Prompt Function
