@@ -97,7 +97,7 @@ x
 #' @examples
 #' colShapiro(dataframe, interpret=TRUE)
 #' 
-colShapiro <- function(x, print=TRUE, interpret=FALSE) {	
+colShapiro <- function(x, print=FALSE, interpret=FALSE) {	
 	res <- sapply(x, function(y) {
 	  shapiro <- shapiro.test(y)
 	if (interpret) {
@@ -128,7 +128,7 @@ colShapiro <- function(x, print=TRUE, interpret=FALSE) {
 #' @examples
 #' colKS(dataframe, interpret=TRUE)
 #' 
-colKS <- function(x, print = TRUE, interpret=FALSE) {
+colKS <- function(x, print = FALSE, interpret=FALSE) {
 	res <- sapply(x, function(y) {
 	ks <- ks.test(y, pnorm, mean(y), sd(y))
 	if (interpret) {
@@ -158,7 +158,7 @@ colKS <- function(x, print = TRUE, interpret=FALSE) {
 #' colSD(dataframe)
 #' 
 # data frame sd
-colSD <- function(x, print=TRUE) {
+colSD <- function(x, print=FALSE) {
 	if (print) {
 		print("Standard Deviation")
 	}
@@ -176,7 +176,9 @@ colSD <- function(x, print=TRUE) {
 #' colMedian(dataframe)
 #' 
 # data frame sd
-colMedian <- function(x) {
-	print("Median")
+colMedian <- function(x, print=FALSE) {
+	if (print) {
+		print("Median")
+	}
 	sapply(x, median, na.rm = TRUE)
 }
