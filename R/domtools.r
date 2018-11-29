@@ -13,7 +13,7 @@
 #' cls_fun()
 #' clear()
 cls_fun <- function() cat(c("\033[2J","\033[0;0H"));
-clear() <- function() cat(c("\033[2J","\033[0;0H"));
+clear <- function() cat(c("\033[2J","\033[0;0H"));
 
 
 #' Newline Function
@@ -29,7 +29,7 @@ clear() <- function() cat(c("\033[2J","\033[0;0H"));
 #' newline()
 # newline function
 nl_fun <- function() cat("\n");
-newline() <- function() cat("\n");
+newline <- function() cat("\n");
 
 #' Input Prompt Function
 #'
