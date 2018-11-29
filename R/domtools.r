@@ -1,30 +1,35 @@
 # Copyright 2018 Dominic Davis-Foster, except where noted below
-
+#' v1.1'
 
 #' Clear Terminal Function
 #'
 #' This function clears the terminal on Unix systems.
-#' Does not work on Windows
+#' Does not work on Windows.
+#' Run makeActiveBinding("clear", cls_fun, baseenv()) 
+#'	to be able to type "clear"
 #' @keywords clear
 #' @export
 #' @examples
 #' cls_fun()
-#' clear
+#' clear()
 cls_fun <- function() cat(c("\033[2J","\033[0;0H"));
-makeActiveBinding("clear", cls_fun, baseenv())
+clear() <- function() cat(c("\033[2J","\033[0;0H"));
+
 
 #' Newline Function
 #'
 #' This function starts a new line on the terminal.
 #' Can also be used to print a blank line.
+#' Run makeActiveBinding("newline", nl_fun, baseenv())
+#'	to be able to type "newline
 #' @keywords newline
 #' @export
 #' @examples
 #' nl_fun()
-#' newline
+#' newline()
 # newline function
 nl_fun <- function() cat("\n");
-makeActiveBinding("newline", nl_fun, baseenv())
+newline() <- function() cat("\n");
 
 #' Input Prompt Function
 #'
@@ -146,16 +151,31 @@ colKS <- function(x, interpret=FALSE) {
 #' Standard Deviation for Data Frames
 #'
 #' Function to calculate Standard Deviation for each column of a Data Frame.
-#' Can provide interpretation for p-value with "interpret=TRUE".
 #' Modified from https://stackoverflow.com/questions/37806387/r-calculate-standard-deviation-in-cols-in-a-data-frame-despite-of-na-values
 #'
 #' @keywords Standard Deviation std sd stdev data.frame
 #' @export
 #' @examples
-#' colSD(dataframe
+#' colSD(dataframe)
 #' 
 # data frame sd
 colSD <- function(x) {
 	print("Standard Deviation")
 	sapply(x, sd, na.rm = TRUE)
+}
+
+#' Median for Data Frames
+#'
+#' Function to calculate Median for each column of a Data Frame.
+#' Modified from https://stackoverflow.com/questions/37806387/r-calculate-standard-deviation-in-cols-in-a-data-frame-despite-of-na-values
+#'
+#' @keywords Median data.frame
+#' @export
+#' @examples
+#' colMedian(dataframe)
+#' 
+# data frame sd
+colMedian <- function(x) {
+	print("Median")
+	sapply(x, median, na.rm = TRUE)
 }
