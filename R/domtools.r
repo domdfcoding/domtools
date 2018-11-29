@@ -5,7 +5,7 @@
 #'
 #' This function clears the terminal on Unix systems.
 #' Does not work on Windows.
-#' Run makeActiveBinding("clear", clear, baseenv()) 
+#' Run makeActiveBinding("clear", clear, environment()) 
 #'	to be able to type "clear"
 #' @keywords clear
 #' @export
@@ -18,7 +18,7 @@ clear <- function() cat(c("\033[2J","\033[0;0H"));
 #'
 #' This function starts a new line on the terminal.
 #' Can also be used to print a blank line.
-#' Run makeActiveBinding("newline", newline, baseenv())
+#' Run makeActiveBinding("newline", newline, environment())
 #'	to be able to type "newline
 #' @keywords newline
 #' @export
@@ -97,7 +97,7 @@ x
 #' @examples
 #' colShapiro(dataframe, interpret=TRUE)
 #' 
-colShapiro <- function(x, interpret=FALSE) {
+colShapiro <- function(x, print=TRUE, interpret=FALSE) {	
 	res <- sapply(x, function(y) {
 	  shapiro <- shapiro.test(y)
 	if (interpret) {
@@ -110,7 +110,9 @@ colShapiro <- function(x, interpret=FALSE) {
 	}
 	})
 	
-	print("Shapiro-Wilk Test")
+	if (print) {
+		print("Shapiro-Wilk Test")
+	}
 	return(res)
 }
 
@@ -126,7 +128,7 @@ colShapiro <- function(x, interpret=FALSE) {
 #' @examples
 #' colKS(dataframe, interpret=TRUE)
 #' 
-colKS <- function(x, interpret=FALSE) {
+colKS <- function(x, print = TRUE, interpret=FALSE) {
 	res <- sapply(x, function(y) {
 	ks <- ks.test(y, pnorm, mean(y), sd(y))
 	if (interpret) {
@@ -139,7 +141,9 @@ colKS <- function(x, interpret=FALSE) {
 	}
 	})
 
-	print("Kolmogorov-Smirnov Test")
+	if (print) {
+		print("Kolmogorov-Smirnov Test")
+	}
 	return(res)
 }
 
@@ -154,8 +158,10 @@ colKS <- function(x, interpret=FALSE) {
 #' colSD(dataframe)
 #' 
 # data frame sd
-colSD <- function(x) {
-	print("Standard Deviation")
+colSD <- function(x, print=TRUE) {
+	if (print) {
+		print("Standard Deviation")
+	}
 	sapply(x, sd, na.rm = TRUE)
 }
 
